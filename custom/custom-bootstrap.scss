@@ -1,0 +1,16 @@
+@import './scss/functions';
+@import './scss/variables';
+
+$primary:#7b0e24;
+$warning :#ff7b00;
+
+$new-theme-colors: (
+    "primary": $primary,
+    "warning": $warning
+);
+$theme-colors: map-merge($theme-colors, $new-theme-colors);
+
+$btn-padding-y:0.5rem;
+$btn-padding-x:2rem;
+
+@import './scss/bootstrap.scss';

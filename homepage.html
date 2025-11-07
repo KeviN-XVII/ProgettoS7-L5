@@ -10,12 +10,36 @@
       integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB"
       crossorigin="anonymous"
     />
+    <link rel="stylesheet" href="custom-bootstrap.css" />
   </head>
   <body>
-    <header>
-      <h1>CRUDAZON</h1>
+    <header style="background-color: #7b0e24">
+      <nav class="navbar navbar-expand-lg bg-body-tertiary">
+        <div class="container-fluid">
+          <a class="navbar-brand" href="#"
+            ><img src="logo.png" alt="Logo" style="width: 200px"
+          /></a>
+          <button
+            class="navbar-toggler"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#navbarNavAltMarkup"
+            aria-controls="navbarNavAltMarkup"
+            aria-expanded="false"
+            aria-label="Toggle navigation"
+          >
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+            <div class="navbar-nav">
+              <a class="nav-link active" aria-current="page" href="#">Home</a>
+            </div>
+          </div>
+        </div>
+      </nav>
     </header>
     <main>
+      <h1 class="text-center">I nostri prodotti</h1>
       <div class="container">
         <div
           class="row row-cols-4 row-md-cols-3 row-lg-cols-2"
