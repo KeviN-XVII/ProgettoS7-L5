@@ -20,18 +20,18 @@
         <div class="row justify-content-center my-3">
           <div class="col col-12 col-md-8 col-lg-6">
             <div class="card">
-              <img
-                src="https://picsum.photos/600/600"
-                class="card-img-top"
-                alt="concert-image"
-              />
+              <img src="" class="card-img-top" alt="concert-image" id="image" />
               <div class="card-body">
-                <h5 class="card-title">Name Product</h5>
-                <p class="card-text">Description</p>
-                <p class="card-text">Brand</p>
-                <p class="card-text">Price</p>
-                <p class="card-text">ID</p>
-                <a href="#" class="btn btn-primary">Go somewhere</a>
+                <h5 class="card-title" id="name">Name Product</h5>
+                <p class="card-text" id="description">Description</p>
+                <p class="card-text" id="brand">Brand</p>
+                <p class="card-text" id="price">Price</p>
+                <button class="btn btn-warning" onclick="editEvent()">
+                  MODIFICA EVENTO
+                </button>
+                <button class="btn btn-danger" onclick="deleteEvent()">
+                  ELIMINA EVENTO
+                </button>
               </div>
             </div>
           </div>
