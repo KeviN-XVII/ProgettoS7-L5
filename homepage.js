@@ -12,7 +12,7 @@ const getProducts = function () {
       if (res.ok) {
         return res.json();
       } else {
-        throw new Error("Errore nel recupero dei prodotti");
+        throw new Error(res.status);
       }
     })
     .then((products) => {
@@ -21,14 +21,14 @@ const getProducts = function () {
       products.forEach((product) => {
         row.innerHTML += `
         <div class="col g-3">
-            <div class="card h-100 d-flex flex-column">
+            <div class="prodcard card h-100 d-flex flex-column shadow" >
                 <img src="${product.imageUrl}" class="card-img-top" alt="${product.name}">
                 <div class="card-body flex-grow-1 d-flex flex-column">
-                    <h5 class="card-title">${product.name}</h5>
+                    <h5 class="card-title text-center">${product.name}</h5>
                     <p class="card-text flex-grow-1">${product.description}</p>
-                    <p class="card-text"><strong>Brand:</strong> ${product.brand}</p>
-                    <p class="card-text"><strong>Price:</strong> ${product.price},00€</p>
-                    <a href="./details.html?ProdId=${product._id}" class="btn btn-primary">Vai ai dettagli</a>
+                    <p class="card-text text-center"><strong>Brand:</strong> ${product.brand}</p>
+                    <p class="card-text text-center text-primary fw-bolder">${product.price},00€</p>
+                    <a href="./details.html?ProdId=${product._id}" class="btn btn-primary rounded-pill">Vai ai dettagli</a>
                 </div>
             </div>
         </div>
@@ -37,6 +37,9 @@ const getProducts = function () {
     })
     .catch((err) => {
       console.log("Errore:", err);
+      const errorC = document.getElementById("error");
+      errorC.innerHTML =
+        "<h1 class='text-danger fw-bold'>Si è verificato un errore</h1>" + err;
     });
 };
 getProducts();

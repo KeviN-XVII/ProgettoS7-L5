@@ -3,14 +3,20 @@
 
 $primary:#7b0e24;
 $warning :#ff7b00;
+$success:#1ca53c;
 
 $new-theme-colors: (
     "primary": $primary,
-    "warning": $warning
+    "warning": $warning,
+    "success": $success
 );
 $theme-colors: map-merge($theme-colors, $new-theme-colors);
 
 $btn-padding-y:0.5rem;
 $btn-padding-x:2rem;
+
+$input-focus-border-color: red;
+$input-focus-box-shadow: 0 0 0 0.25rem rgba(255, 0, 0, 0.25);
+
 
 @import './scss/bootstrap.scss';

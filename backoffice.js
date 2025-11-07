@@ -15,6 +15,12 @@ const form = document.getElementById("form-product");
 const url = location.search;
 const allP = new URLSearchParams(url);
 const id = allP.get("ProdId");
+const resetBtn = document.getElementById("reset-btn");
+const inviaBtn = document.getElementById("invia-btn");
+if (id) {
+  resetBtn.style.display = "none";
+  inviaBtn.textContent = "MODIFICA";
+}
 if (id) {
   fetch(ApiUrl + "/" + id, {
     headers: {
@@ -26,7 +32,7 @@ if (id) {
       if (res.ok) {
         return res.json();
       } else {
-        throw new Error("Errore nel recupero del prodotto");
+        throw new Error(res.status);
       }
     })
     .then((product) => {
@@ -38,6 +44,9 @@ if (id) {
     })
     .catch((err) => {
       console.log("Errore:", err);
+      const errorC = document.getElementById("error");
+      errorC.innerHTML =
+        "<h1 class='text-danger fw-bold'>Si è verificato un errore</h1>" + err;
     });
 }
 
@@ -76,5 +85,16 @@ form.addEventListener("submit", (e) => {
     })
     .catch((err) => {
       console.log("Errore:", err);
+      const errorC = document.getElementById("error");
+      errorC.innerHTML =
+        "<h1 class='text-danger fw-bold'>Si è verificato un errore nel caricamento del prodotto.</h1>" +
+        err;
     });
+});
+
+const confirmResetBtn = document.getElementById("confirmReset");
+const resetModalEl = document.getElementById("confirmResetModal");
+
+confirmResetBtn.addEventListener("click", () => {
+  form.reset();
 });

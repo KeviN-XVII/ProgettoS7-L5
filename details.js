@@ -16,7 +16,7 @@ const getProductDetails = function () {
       if (res.ok) {
         return res.json();
       } else {
-        throw new Error("Errore nel recupero del prodotto");
+        throw new Error(res.status);
       }
     })
     .then((product) => {
@@ -29,7 +29,9 @@ const getProductDetails = function () {
     })
     .catch((err) => {
       console.log("Errore:", err);
-      // qui andrà un get element per recuperare ERR con l'innterText
+      const errorC = document.getElementById("error");
+      errorC.innerHTML =
+        "<h1 class='text-danger fw-bold'>Si è verificato un errore</h1>" + err;
     });
 };
 getProductDetails();
@@ -51,10 +53,13 @@ const deleteEvent = function () {
         alert("Prodotto eliminato con successo");
         location.assign("homepage.html");
       } else {
-        throw new Error("Errore nell'eliminazione del prodotto");
+        throw new Error(res.status);
       }
     })
     .catch((err) => {
       console.log("Errore:", err);
+      const errorC = document.getElementById("error");
+      errorC.innerHTML =
+        "<h1 class='text-danger fw-bold'>Si è verificato un errore</h1>" + err;
     });
 };
